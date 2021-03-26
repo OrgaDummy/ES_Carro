@@ -1,11 +1,11 @@
 package es.antrob;
 
 /**
- * A classe Carro representa uma viatura automóvel, conhecida popularmente por Carro.
+ * A classe Carro representa uma viatura automÃ³vel, conhecida popularmente por Carro.
  *
  *  
- * Pretende-se construir uma abstracção simples de um carro, 
- * na sequência da Resolução da Ficha 3 de POO.
+ * Pretende-se construir uma abstracÃ§Ã£o simples de um carro, 
+ * na sequÃªncia da ResoluÃ§Ã£o da Ficha 3 de POO.
  *    
  * @author antrob
  *
@@ -14,16 +14,16 @@ public class Carro {
 	
 	static private final double CONSUMO=5.5; // litros por 100 klm
 	
-	private double quantidadeCombustivel;	// quantidade de combustível no depósito (unidade litros)
-	private double capacidadeDeposito;		// capacidade do depósito em termos de combustível (unidade litros)
+	private double quantidadeCombustivel;	// quantidade de combustÃ­vel no depÃ³sito (unidade litros)
+	private double capacidadeDeposito;		// capacidade do depÃ³sito em termos de combustÃ­vel (unidade litros)
 	
 	/*		Construtores	*/
 	 
 	/**
 	 *  Construtor por defeito.
 	 *  
-	 *  O nível de combustível inicial é 0. 
-	 *  A capacidade do depósito é constante e igual a 40 litros 
+	 *  O nÃ­vel de combustÃ­vel inicial Ã© 0. 
+	 *  A capacidade do depÃ³sito Ã© constante e igual a 40 litros 
 	 */
 	public Carro() {
 		super();
@@ -37,27 +37,27 @@ public class Carro {
 	/**
 	 * Obter o Consumo do carro em litros por 100Klm.
 	 * 
-	 * O consumo corresponde a uma especificação de fábrica e assume-se como sendo constante na circulação do automóvel. 
+	 * O consumo corresponde a uma especificaÃ§Ã£o de fÃ¡brica e assume-se como sendo constante na circulaÃ§Ã£o do automÃ³vel. 
 	 * 
-	 * @return retorna o número de litros gastos por cada 100 Klm
+	 * @return retorna o nÃºmero de litros gastos por cada 100 Klm
 	 */
 	public static double getConsumo() {
 		return CONSUMO;
 	}
 
 	/**
-	 * Obter a Quantidade de combustível que está no depósito. 
+	 * Obter a Quantidade de combustÃ­vel que estÃ¡ no depÃ³sito. 
 	 * 
-	 * @return retorna o número de litros de combustível armazenado no depósito  
+	 * @return retorna o nÃºmero de litros de combustÃ­vel armazenado no depÃ³sito  
 	 */
 	public double getQuantidadeCombustivel() {
 		return quantidadeCombustivel;
 	}
 
 	/**
-	 * Obter a Capacidade do depósito 
+	 * Obter a Capacidade do depÃ³sito 
 	 * 
-	 * A capacidade do depósito não se altera no decorrer da vida útil do carro. 
+	 * A capacidade do depÃ³sito nÃ£o se altera no decorrer da vida Ãºtil do carro. 
 	 * 
 	 * @return
 	 */
@@ -65,33 +65,43 @@ public class Carro {
 		return capacidadeDeposito;
 	}
 	
-	/*		Métodos			*/ 
+	/*		MÃ©todos			*/ 
 	
 	/**
-	 * Meter uma determinada quantidade de combustível no carro
+	 * Meter uma determinada quantidade de combustÃ­vel no carro
 	 * 
-	 * Esta é uma das hipóteses de meter combustível
+	 * Esta Ã© uma das hipÃ³teses de meter combustÃ­vel
 	 * definindo a quantidade a abastecer 
 	 *  
-	 * @param quantidade - número de litros a introduzir no depósito
+	 * @param quantidade - nÃºmero de litros a introduzir no depÃ³sito
 	 */
 	public void meterCombustivel( double quantidade) { 		
 		
-		// Devia testar se Transborda o depósito
+		// Devia testar se Transborda o depÃ³sito
 		// Podia retornar os Litros Metidos 
-		quantidadeCombustivel = quantidadeCombustivel + quantidade;
+		
+		// SIMULAR a RealizaÃ§Ã£o das AlteraÃ§Ãµes definidas na Issue #2
+		if( quantidadeCombustivel + quantidade > capacidadeDeposito ) {
+		    double litrosMetidos = capacidadeDeposito - quantidadeCombusivel;
+		    quantidadeCombustivel = capacidadeDeposito;
+		    return litrosMetidos	
+		}
+		else {
+			quantidadeCombustivel = quantidadeCombustivel + quantidade;
+			return quantidade;
+		}
 		
 		
 	}
 	
 	
 	/**
-	 * Meter combustível no carro de forma a atestar o depósito.
+	 * Meter combustÃ­vel no carro de forma a atestar o depÃ³sito.
 	 * 
-	 * Atestar o depósito do carro é uma operação comum nos condutores,
+	 * Atestar o depÃ³sito do carro Ã© uma operaÃ§Ã£o comum nos condutores,
 	 * designadamente antes ou quando em viagem.
 	 * 
-	 * @return retorna a quantidade de litros metida no depósito
+	 * @return retorna a quantidade de litros metida no depÃ³sito
 	 */
 	public double meterCombustivel() {
 		
@@ -105,11 +115,11 @@ public class Carro {
 	
 	
 	/**
-	 * Andar simula o ato de conduzir o veículo ao longo de uma certa distância.
+	 * Andar simula o ato de conduzir o veÃ­culo ao longo de uma certa distÃ¢ncia.
 	 * 
-	 * @param distancia números de klm a percorrer com o carro
+	 * @param distancia nÃºmeros de klm a percorrer com o carro
 	 *  
-	 * @return retorna se conseguiu percorrer a distancia ou não
+	 * @return retorna se conseguiu percorrer a distancia ou nÃ£o
 	 */
 	public boolean andar( double distancia ) {
 		
@@ -121,8 +131,8 @@ public class Carro {
 		}
 		else {
 			
-			// Aqui ou simplesmente não percorre qualquer distancia 
-			// ou anda até parar porque fica sem combustível 
+			// Aqui ou simplesmente nÃ£o percorre qualquer distancia 
+			// ou anda atÃ© parar porque fica sem combustÃ­vel 
 			return false;
 		}
 			
@@ -132,9 +142,9 @@ public class Carro {
 	
 	// kmCombustivel( )   
 	/**
-	 * Obter Autonomia permite saber quantos Klms podem ser feitos com o carro sem meter combustível.
+	 * Obter Autonomia permite saber quantos Klms podem ser feitos com o carro sem meter combustÃ­vel.
 	 * 
-	 * @return retorna o número de klm que podem ser percorridos com o atual nível do depósito
+	 * @return retorna o nÃºmero de klm que podem ser percorridos com o atual nÃ­vel do depÃ³sito
 	 */
 	public double obterAutonomia() {
 		
