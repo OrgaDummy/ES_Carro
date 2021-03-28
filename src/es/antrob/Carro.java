@@ -127,6 +127,10 @@ public class Carro {
 		if( distancia < obterAutonomia() ) {
 			
 			quantidadeCombustivel -= getConsumo() * (distancia / 100); 
+			
+			// Também foi alterado o método andar aqui no remoto
+			var f="TESTE de MERGE CONFLICT";
+			
 			return true;
 		}
 		else {
